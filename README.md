@@ -62,7 +62,7 @@ See [BACKEND_ARCHITECTURE_SUMMARY.md](BACKEND_ARCHITECTURE_SUMMARY.md) for a det
 ### 1. Clone the repository
 
 ```powershell
-git clone <your-repository-url>
+git clone https://github.com/rasbamazhar6-sudo/Real-Estate-Management-System
 cd VP
 ```
 

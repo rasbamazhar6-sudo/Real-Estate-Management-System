@@ -1,0 +1,189 @@
+<Page x:Class="Project.Pages.CreateAccountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Title="Create Account"
+      Background="{StaticResource BackgroundColor}">
+
+    <Grid>
+
+        <!-- Background -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#F5F7FA" Offset="0"/>
+                <GradientStop Color="#EAF2FF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- CENTER PANEL -->
+        <Grid HorizontalAlignment="Center"
+              VerticalAlignment="Center">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320"/>
+                <ColumnDefinition Width="420"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- LEFT BRAND PANEL -->
+            <Border Grid.Column="0"
+                    Background="{StaticResource PrimaryGradientBrush}"
+                    CornerRadius="14,0,0,14">
+
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="20"
+                                      ShadowDepth="8"
+                                      Opacity="0.3"/>
+                </Border.Effect>
+
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Margin="30">
+
+                    <TextBlock Text="🏢"
+                               FontSize="72"
+                               Margin="0,0,0,20"
+                               HorizontalAlignment="Center"/>
+
+                    <TextBlock Text="Real Estate"
+                               FontSize="30"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               HorizontalAlignment="Center"/>
+
+                    <TextBlock Text="Management System"
+                               FontSize="16"
+                               Foreground="White"
+                               Opacity="0.85"
+                               HorizontalAlignment="Center"
+                               Margin="0,6,0,0"/>
+
+                    <Separator Margin="0,30"/>
+
+                    <TextBlock Text="Manage properties, plots and clients in one powerful system."
+                               Foreground="White"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Opacity="0.85"/>
+                </StackPanel>
+
+            </Border>
+
+
+            <!-- RIGHT FORM PANEL -->
+            <Border Grid.Column="1"
+                    Background="{StaticResource SurfaceColor}"
+                    CornerRadius="0,14,14,0"
+                    Padding="50">
+
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="20"
+                                      ShadowDepth="8"
+                                      Opacity="0.18"/>
+                </Border.Effect>
+
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+                    <StackPanel>
+
+                        <!-- HEADER -->
+                        <TextBlock Text="Create Account"
+                                   FontSize="30"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,30"
+                                   Foreground="{StaticResource TextPrimaryColor}"/>
+
+                        <!-- FULL NAME -->
+                        <TextBlock Text="Full Name"
+                                   Style="{StaticResource LabelStyle}"/>
+
+                        <TextBox x:Name="txtFullName"
+                                 Style="{StaticResource ModernTextBoxStyle}"
+                                 Margin="0,6,0,18"/>
+
+
+                        <!-- EMAIL -->
+                        <TextBlock Text="Email"
+                                   Style="{StaticResource LabelStyle}"/>
+
+                        <TextBox x:Name="txtEmail"
+                                 Style="{StaticResource ModernTextBoxStyle}"
+                                 Margin="0,6,0,18"/>
+
+
+                        <!-- PASSWORD -->
+                        <TextBlock Text="Password"
+                                   Style="{StaticResource LabelStyle}"/>
+
+                        <PasswordBox x:Name="txtPassword"
+                                     Style="{StaticResource ModernPasswordBoxStyle}"
+                                     Margin="0,6,0,18"/>
+
+
+                        <!-- CONFIRM PASSWORD -->
+                        <TextBlock Text="Confirm Password"
+                                   Style="{StaticResource LabelStyle}"/>
+
+                        <PasswordBox x:Name="txtConfirmPassword"
+                                     Style="{StaticResource ModernPasswordBoxStyle}"
+                                     Margin="0,6,0,12"/>
+
+
+                        <!-- ERROR -->
+                        <TextBlock x:Name="txtErrorMessage"
+                                   Foreground="{StaticResource ErrorColor}"
+                                   FontSize="13"
+                                   Margin="0,6,0,12"
+                                   Visibility="Collapsed"
+                                   TextWrapping="Wrap"/>
+
+
+                        <!-- CREATE ACCOUNT BUTTON -->
+                        <Button x:Name="btnCreateAccount"
+                                Content="Create Account"
+                                Style="{StaticResource SuccessButtonStyle}"
+                                Height="42"
+                                Click="BtnCreateAccount_Click"
+                                Margin="0,10,0,20"/>
+
+
+                        <!-- LOGIN LINK -->
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center">
+
+                            <TextBlock Text="Already have an account?"
+                                       Foreground="{StaticResource TextSecondaryColor}"
+                                       VerticalAlignment="Center"/>
+
+                            <Button x:Name="btnBackToLogin"
+                                    Content=" Sign In"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Foreground="{StaticResource PrimaryColor}"
+                                    FontWeight="SemiBold"
+                                    Cursor="Hand"
+                                    Click="BtnBackToLogin_Click"/>
+
+                        </StackPanel>
+
+
+                        <!-- FOOTER -->
+                        <TextBlock Text="© 2026 Real Estate Management System"
+                                   FontSize="11"
+                                   Opacity="0.6"
+                                   Margin="0,30,0,0"
+                                   HorizontalAlignment="Center"
+                                   Foreground="{StaticResource TextSecondaryColor}"/>
+
+                    </StackPanel>
+
+                </ScrollViewer>
+
+            </Border>
+
+        </Grid>
+
+    </Grid>
+
+</Page>

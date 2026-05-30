@@ -1,0 +1,326 @@
+<Page x:Class="Project.Pages.CustomerLedgerReceivablesManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="{StaticResource BackgroundColor}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+        <Grid Margin="32">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <!-- PAGE HEADER -->
+
+            <StackPanel Grid.Row="0" Margin="0,0,0,28">
+
+                <TextBlock Text="Customer Management"
+                           Style="{StaticResource PageHeaderStyle}"/>
+
+                <TextBlock Text="Add, update, and manage customer information, contact details, and account status"
+                           FontSize="15"
+                           Foreground="{StaticResource TextSecondaryColor}"/>
+
+            </StackPanel>
+
+
+            <!-- CUSTOMER FORM -->
+
+            <Border Grid.Row="1"
+                    Style="{StaticResource CardStyle}"
+                    Margin="0,0,0,24">
+
+                <Grid Margin="24">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <TextBlock Grid.Row="0"
+                               Grid.ColumnSpan="3"
+                               Text="Customer Information"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,18"/>
+
+
+                    <!-- Name -->
+
+                    <StackPanel Grid.Row="1" Grid.Column="0">
+
+                        <TextBlock Text="Customer Name" Margin="0,0,0,6"/>
+                        <TextBox x:Name="txtName"
+                                 Style="{StaticResource ModernTextBoxStyle}"
+                                 Height="38"/>
+
+                    </StackPanel>
+
+
+                    <!-- CNIC -->
+
+                    <StackPanel Grid.Row="1" Grid.Column="2">
+
+                        <TextBlock Text="CNIC / NTN" Margin="0,0,0,6"/>
+                        <TextBox x:Name="txtCNICNTN"
+                                 Style="{StaticResource ModernTextBoxStyle}"
+                                 Height="38"/>
+
+                    </StackPanel>
+
+
+                    <!-- Contact -->
+
+                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="0,16,0,0">
+
+                        <TextBlock Text="Contact Number" Margin="0,0,0,6"/>
+                        <TextBox x:Name="txtContact"
+                                 Style="{StaticResource ModernTextBoxStyle}"
+                                 Height="38"/>
+
+                    </StackPanel>
+
+
+                    <!-- Type -->
+
+                    <StackPanel Grid.Row="2" Grid.Column="2" Margin="0,16,0,0">
+
+                        <TextBlock Text="Customer Type" Margin="0,0,0,6"/>
+                        <ComboBox x:Name="cmbType"
+                                  Style="{StaticResource ModernComboBoxStyle}"
+                                  Height="38"/>
+
+                    </StackPanel>
+
+
+                    <!-- Address -->
+
+                    <StackPanel Grid.Row="3"
+                                Grid.ColumnSpan="3"
+                                Margin="0,16,0,0">
+
+                        <TextBlock Text="Address" Margin="0,0,0,6"/>
+
+                        <TextBox x:Name="txtAddress"
+                             Style="{StaticResource ModernTextBoxStyle}"
+                             Height="60"
+                             Margin="0,4,0,0"
+                             AcceptsReturn="True"
+                             TextWrapping="Wrap"/>
+
+                    </StackPanel>
+
+
+                    <!-- Status -->
+
+                    <StackPanel Grid.Row="4"
+                                Grid.Column="0"
+                                Margin="0,16,0,0">
+
+                        <TextBlock Text="Status" Margin="0,0,0,6"/>
+
+                        <ComboBox x:Name="cmbStatus"
+                                  Style="{StaticResource ModernComboBoxStyle}"
+                                  Height="38"/>
+
+                    </StackPanel>
+
+
+                    <!-- ACTION BUTTONS -->
+
+                    <StackPanel Grid.Row="4"
+                                Grid.Column="2"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                Margin="0,16,0,0">
+
+                        <Button Content="Save"
+                                x:Name="btnSave"
+                                Style="{StaticResource SuccessButtonStyle}"
+                                Width="100"
+                                Height="38"
+                                Margin="0,0,10,0"
+                                Click="BtnSave_Click"/>
+
+                        <Button Content="Clear"
+                                x:Name="btnClear"
+                                Style="{StaticResource SecondaryButtonStyle}"
+                                Width="100"
+                                Height="38"
+                                Margin="0,0,10,0"
+                                Click="BtnClear_Click"/>
+
+                        <Button Content="Delete"
+                                x:Name="btnDelete"
+                                Style="{StaticResource DangerButtonStyle}"
+                                Width="100"
+                                Height="38"
+                                Click="BtnDelete_Click"/>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </Border>
+
+
+            <!-- SEARCH + FILTER -->
+
+            <Border Grid.Row="2"
+                    Style="{StaticResource CardStyle}"
+                    Margin="0,0,0,24">
+
+                <Grid Margin="24">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <!-- Search -->
+
+                    <StackPanel Grid.Column="0">
+
+                        <TextBlock Text="Search Customer" Margin="0,0,0,6"/>
+                        <TextBox x:Name="txtSearch"
+                                 Style="{StaticResource ModernTextBoxStyle}"
+                                 Height="38"
+                                 TextChanged="TxtSearch_TextChanged"/>
+
+                    </StackPanel>
+
+
+                    <!-- Filter Type -->
+
+                    <StackPanel Grid.Column="2">
+
+                        <TextBlock Text="Filter Type" Margin="0,0,0,6"/>
+                        <ComboBox x:Name="cmbFilterType"
+                                  Style="{StaticResource ModernComboBoxStyle}"
+                                  Height="38"
+                                  SelectionChanged="CmbFilterType_SelectionChanged"/>
+
+                    </StackPanel>
+
+
+                    <!-- Filter Status -->
+
+                    <StackPanel Grid.Column="4">
+
+                        <TextBlock Text="Filter Status" Margin="0,0,0,6"/>
+                        <ComboBox x:Name="cmbFilterStatus"
+                                  Style="{StaticResource ModernComboBoxStyle}"
+                                  Height="38"
+                                  SelectionChanged="CmbFilterStatus_SelectionChanged"/>
+
+                    </StackPanel>
+
+
+                    <!-- Export -->
+
+                    <StackPanel Grid.Column="5"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom">
+
+                        <Button Content="Export PDF"
+                                Style="{StaticResource ExportPdfButtonStyle}"
+                                Width="120"
+                                Height="42"
+                                Margin="0,0,10,0"
+                                Click="BtnExportPDF_Click"/>
+
+                        <Button Content="Export Excel"
+                                Style="{StaticResource ExportExcelButtonStyle}"
+                                Width="120"
+                                Height="42"
+                                Click="BtnExportExcel_Click"/>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </Border>
+
+
+            <!-- DATA GRID -->
+
+            <Border Grid.Row="3"
+                    Style="{StaticResource CardStyle}">
+
+                <Grid Margin="24">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Customer List"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,16"/>
+
+
+                    <DataGrid x:Name="dgCustomers"
+                              Grid.Row="1"
+                              Style="{StaticResource ModernDataGridStyle}"
+                              AutoGenerateColumns="False"
+                              SelectionMode="Single"
+                              IsReadOnly="True"
+                              SelectionChanged="DgCustomers_SelectionChanged">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="Name"
+                                                Binding="{Binding Name}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="CNIC / NTN"
+                                                Binding="{Binding CNICNTN}"
+                                                Width="150"/>
+
+                            <DataGridTextColumn Header="Contact"
+                                                Binding="{Binding Contact}"
+                                                Width="150"/>
+
+                            <DataGridTextColumn Header="Type"
+                                                Binding="{Binding Type}"
+                                                Width="120"/>
+
+                            <DataGridTextColumn Header="Status"
+                                                Binding="{Binding Status}"
+                                                Width="120"/>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </Grid>
+
+            </Border>
+
+        </Grid>
+
+    </ScrollViewer>
+
+</Page>

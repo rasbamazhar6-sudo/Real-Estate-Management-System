@@ -1,0 +1,269 @@
+<Page x:Class="Project.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="{StaticResource BackgroundColor}">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- ================= HEADER ================= -->
+
+        <Border Grid.Row="0"
+                Background="{StaticResource HeaderGradientBrush}"
+                Padding="24,0">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center">
+
+                    <TextBlock Text="🏢"
+                               FontSize="22"
+                               Margin="0,0,10,0"/>
+
+                    <TextBlock Text="Real Estate Management System"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               Foreground="White"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center">
+
+                    <TextBlock Text="👤"
+                               FontSize="16"
+                               Margin="0,0,6,0"
+                               Foreground="White"/>
+
+                    <TextBlock Text="Welcome, Admin"
+                               FontSize="14"
+                               FontWeight="SemiBold"
+                               Foreground="White"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+
+        <!-- ================= MAIN ================= -->
+
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <!-- ================= SIDEBAR ================= -->
+
+            <Border Grid.Column="0"
+                    Background="{StaticResource SurfaceColor}"
+                    BorderBrush="{StaticResource DividerColor}"
+                    BorderThickness="0,0,1,0">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <ScrollViewer Grid.Row="1"
+                                  VerticalScrollBarVisibility="Auto">
+
+                        <StackPanel Margin="20">
+
+                            <!-- PROJECT MANAGEMENT -->
+
+                            <TextBlock Text="PROJECT MANAGEMENT"
+                                       FontSize="12"
+                                       FontWeight="Bold"
+                                       Foreground="{StaticResource TextSecondaryColor}"
+                                       Margin="0,0,0,12"/>
+
+                            <Button x:Name="btnProjectManagement"
+                                Style="{StaticResource NavigationButtonStyle}"
+                                Click="BtnProjectManagement_Click">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📋" FontSize="16" Margin="0,0,10,0"/>
+                                    <TextBlock Text="Project Management"/>
+                                </StackPanel>
+
+                            </Button>
+
+                            <Button x:Name="btnPlotManagement"
+                                    Style="{StaticResource NavigationButtonStyle}"
+                                    Click="BtnPlotManagement_Click">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📐" FontSize="16" Margin="0,0,10,0"/>
+                                    <TextBlock x:Name="txtPlotManagement"
+                                               Text="Plot Management"
+                                               TextWrapping="Wrap"/>
+                                </StackPanel>
+
+                            </Button>
+
+                            <Button x:Name="btnPlotVisualDashboard"
+                                    Style="{StaticResource NavigationButtonStyle}"
+                                    Click="BtnPlotVisualDashboard_Click">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📊" FontSize="16" Margin="0,0,10,0"/>
+                                    <TextBlock Text="Plot Visual Dashboard"
+                                               TextWrapping="Wrap"/>
+                                </StackPanel>
+
+                            </Button>
+
+                            <Button x:Name="btnOwnershipMapping"
+                                    Style="{StaticResource NavigationButtonStyle}"
+                                    Click="BtnOwnershipMapping_Click"
+                                    Margin="0,0,0,16">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="🔗" FontSize="16" Margin="0,0,10,0"/>
+                                    <TextBlock Text="Ownership Mapping"
+                                               TextWrapping="Wrap"/>
+                                </StackPanel>
+
+                            </Button>
+
+
+                            <Separator Margin="0,0,0,16"/>
+
+
+                            <!-- CUSTOMER LEDGER -->
+
+                            <TextBlock Text="CUSTOMER LEDGER"
+                                       FontSize="12"
+                                       FontWeight="Bold"
+                                       Foreground="{StaticResource TextSecondaryColor}"
+                                       Margin="0,0,0,12"/>
+
+                            <Button x:Name="btnCustomerLedger"
+                                    Style="{StaticResource NavigationButtonStyle}"
+                                    Click="BtnModule410_Click">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="💼" FontSize="16" Margin="0,0,10,0"/>
+                                    <TextBlock Text="Customer Management"
+                                               TextWrapping="Wrap"/>
+                                </StackPanel>
+
+                            </Button>
+
+                            <Button x:Name="btnLedgerView"
+                                    Style="{StaticResource NavigationButtonStyle}"
+                                    Click="BtnLedgerView_Click">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📊" FontSize="16" Margin="0,0,10,0"/>
+                                    <TextBlock Text="Ledger View"
+                                               TextWrapping="Wrap"/>
+                                </StackPanel>
+
+                            </Button>
+
+                            <Button x:Name="btnQuickEntry"
+                                    Style="{StaticResource NavigationButtonStyle}"
+                                    Click="BtnQuickEntry_Click">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="⚡" FontSize="16" Margin="0,0,10,0"/>
+                                    <TextBlock Text="Quick Entry"
+                                               TextWrapping="Wrap"/>
+                                </StackPanel>
+
+                            </Button>
+
+                            <Button x:Name="btnAgingReport"
+                                    Style="{StaticResource NavigationButtonStyle}"
+                                    Click="BtnAgingReport_Click">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📅" FontSize="16" Margin="0,0,10,0"/>
+                                    <TextBlock Text="Receivables Aging Report"
+                                               TextWrapping="Wrap"/>
+                                </StackPanel>
+
+                            </Button>
+
+                            <Button x:Name="btnCustomerStatements"
+                                    Style="{StaticResource NavigationButtonStyle}"
+                                    Click="BtnCustomerStatements_Click"
+                                    Margin="0,0,0,16">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="📄" FontSize="16" Margin="0,0,10,0"/>
+                                    <TextBlock Text="Customer Statements"
+                                               TextWrapping="Wrap"/>
+                                </StackPanel>
+
+                            </Button>
+
+
+                            <Separator Margin="0,0,0,16"/>
+
+
+                            <!-- PAYMENT PLANS -->
+
+                            <TextBlock Text="PAYMENT PLANS"
+                                       FontSize="12"
+                                       FontWeight="Bold"
+                                       Foreground="{StaticResource TextSecondaryColor}"
+                                       Margin="0,0,0,12"/>
+
+                            <Button x:Name="btnModule48"
+                                    Style="{StaticResource NavigationButtonStyle}"
+                                    Click="BtnModule48_Click">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="💰" FontSize="16" Margin="0,0,10,0"/>
+                                    <TextBlock x:Name="txtInstallments"
+                                               Text="Installments &amp; Payment Plans"
+                                               TextWrapping="Wrap"/>
+                                </StackPanel>
+
+                            </Button>
+
+
+                            <Separator Margin="0,0,0,16"/>
+
+                        </StackPanel>
+
+                    </ScrollViewer>
+
+                </Grid>
+
+            </Border>
+
+
+            <!-- ================= CONTENT FRAME ================= -->
+
+            <Frame x:Name="ContentFrame"
+                   Grid.Column="1"
+                   NavigationUIVisibility="Hidden"
+                   Background="{StaticResource BackgroundColor}"/>
+
+        </Grid>
+
+    </Grid>
+
+</Page>

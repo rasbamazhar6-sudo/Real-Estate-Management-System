@@ -1,0 +1,81 @@
+## Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio / Rider
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+## NuGet
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## MSBuild / .NET
+*.dll
+*.exe
+*.pdb
+*.cache
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+## Publish profiles (machine-specific)
+*.pubxml.user
+PublishProfiles/*.pubxml.user
+
+## SQL Server LocalDB data files (use project.sql instead)
+*.mdf
+*.ldf
+*.ndf
+
+## Installers and release packages (rebuild locally or use Releases)
+Setup/
+Setup */
+*.zip
+*.msi
+*.msm
+*.msp
+
+## OS / editor
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+*~
+
+## Secrets and local config
+.env
+.env.*
+appsettings.*.json
+!appsettings.json
+secrets.json
+*.pfx

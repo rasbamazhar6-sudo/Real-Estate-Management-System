@@ -1,0 +1,254 @@
+<Page x:Class="Project.Pages.PlotManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="{StaticResource BackgroundColor}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+        <Grid Margin="32">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <!-- PAGE HEADER -->
+
+            <StackPanel Grid.Row="0" Margin="0,0,0,28">
+
+                <TextBlock Text="Project-Wise Plot Management (Marla-Based)"
+                           FontSize="32"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource TextPrimaryColor}"
+                           Margin="0,0,0,8"/>
+
+                <TextBlock Text="Manage plots by project with marla-based measurements, pricing, and availability status"
+                           FontSize="15"
+                           Foreground="{StaticResource TextSecondaryColor}"/>
+
+            </StackPanel>
+
+
+            <!-- FORM CARD -->
+
+            <Border Grid.Row="1"
+                    Style="{StaticResource CardStyle}"
+                    Margin="0,0,0,24">
+
+                <Grid Margin="24">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <!-- FORM TITLE -->
+
+                    <TextBlock Grid.Row="0"
+                               Grid.ColumnSpan="3"
+                               Text="Add / Edit Plot"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,18"/>
+
+
+                    <!-- PLOT NUMBER -->
+
+                    <StackPanel Grid.Row="1" Grid.Column="0">
+                        <TextBlock Text="Plot Number" Margin="0,0,0,6"/>
+                        <TextBox x:Name="txtPlotNo"
+                                 IsReadOnly="True"
+                                 Style="{StaticResource ModernTextBoxStyle}"
+                                 Height="40"/>
+                    </StackPanel>
+
+
+                    <!-- PROJECT -->
+
+                    <StackPanel Grid.Row="1" Grid.Column="2">
+                        <TextBlock Text="Project" Margin="0,0,0,6"/>
+                        <ComboBox x:Name="cmbProject"
+                                  Style="{StaticResource ModernComboBoxStyle}"
+                                  Height="40"/>
+                    </StackPanel>
+
+
+                    <!-- SIZE -->
+
+                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="0,16,0,0">
+                        <TextBlock Text="Size (Marla)" Margin="0,0,0,6"/>
+                        <TextBox x:Name="txtSize"
+                                 Style="{StaticResource ModernTextBoxStyle}"
+                                 Height="40"/>
+                    </StackPanel>
+
+
+                    <!-- PRICE -->
+
+                    <StackPanel Grid.Row="2" Grid.Column="2" Margin="0,16,0,0">
+                        <TextBlock Text="Price" Margin="0,0,0,6"/>
+                        <TextBox x:Name="txtPrice"
+                                 Style="{StaticResource ModernTextBoxStyle}"
+                                 Height="40"/>
+                    </StackPanel>
+
+
+                    <!-- STATUS -->
+
+                    <StackPanel Grid.Row="3" Grid.Column="0" Margin="0,16,0,0">
+                        <TextBlock Text="Status" Margin="0,0,0,6"/>
+                        <ComboBox x:Name="cmbStatus"
+                                  Style="{StaticResource ModernComboBoxStyle}"
+                                  Height="40"/>
+                    </StackPanel>
+
+
+                    <!-- OWNER -->
+
+                    <StackPanel Grid.Row="3" Grid.Column="2" Margin="0,16,0,0">
+
+                        <TextBlock Text="Current Owner" Margin="0,0,0,6"/>
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="110"/>
+                            </Grid.ColumnDefinitions>
+
+                            <ComboBox x:Name="cmbOwner"
+                                      Grid.Column="0"
+                                      Style="{StaticResource ModernComboBoxStyle}"
+                                      Height="40"
+                                      Margin="0,0,8,0"/>
+
+                            <Button x:Name="btnAddOwner"
+                                    Grid.Column="1"
+                                    Content="+ New"
+                                    Style="{StaticResource PrimaryButtonStyle}"
+                                    Height="42"
+                                    Click="BtnAddOwner_Click"
+                                    ToolTip="Add New Owner"/>
+
+                        </Grid>
+
+                    </StackPanel>
+
+
+                    <!-- ACTION BUTTONS -->
+
+                    <StackPanel Grid.Row="4"
+                                Grid.ColumnSpan="3"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                Margin="0,24,0,0">
+
+                        <Button Content="Save"
+                                x:Name="btnSave"
+                                Style="{StaticResource SuccessButtonStyle}"
+                                Width="130"
+                                Height="42"
+                                Margin="0,0,12,0"
+                                Click="BtnSave_Click"/>
+
+                        <Button Content="Clear"
+                                x:Name="btnClear"
+                                Style="{StaticResource SecondaryButtonStyle}"
+                                Width="120"
+                                Height="42"
+                                Margin="0,0,12,0"
+                                Click="BtnClear_Click"/>
+
+                        <Button Content="Delete"
+                                x:Name="btnDelete"
+                                Style="{StaticResource DangerButtonStyle}"
+                                Width="120"
+                                Height="42"
+                                Click="BtnDelete_Click"/>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </Border>
+
+
+            <!-- DATA GRID CARD -->
+
+            <Border Grid.Row="2"
+                    Style="{StaticResource CardStyle}">
+
+                <Grid Margin="24">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock Text="Plots List"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,16"/>
+
+
+                    <DataGrid x:Name="dgPlots"
+                              Grid.Row="1"
+                              Style="{StaticResource ModernDataGridStyle}"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              IsReadOnly="True"
+                              SelectionMode="Single"
+                              SelectionChanged="DgPlots_SelectionChanged">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="Plot No"
+                                                Binding="{Binding PlotNo}"
+                                                Width="120"/>
+
+                            <DataGridTextColumn Header="Project"
+                                                Binding="{Binding ProjectName}"
+                                                Width="*"/>
+
+                            <DataGridTextColumn Header="Size"
+                                                Binding="{Binding Size, StringFormat='{}{0} marla'}"
+                                                Width="120"/>
+
+                            <DataGridTextColumn Header="Price"
+                                                Binding="{Binding Price, StringFormat='PKR {0:N2}'}"
+                                                Width="150"/>
+
+                            <DataGridTextColumn Header="Status"
+                                                Binding="{Binding Status}"
+                                                Width="120"/>
+
+                            <DataGridTextColumn Header="Owner"
+                                                Binding="{Binding OwnerName}"
+                                                Width="*"/>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </Grid>
+
+            </Border>
+
+        </Grid>
+
+    </ScrollViewer>
+
+</Page>
